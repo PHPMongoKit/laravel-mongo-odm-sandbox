@@ -1,2 +1,0 @@
--- Store SQL queries here to initialize database
--- You can add any scripts in this directory

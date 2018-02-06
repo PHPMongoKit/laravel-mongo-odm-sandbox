@@ -67,4 +67,5 @@ then
 fi
 
 ### start server
-php-fpm
+cd /var/www/laravel-mongo
+php artisan serve --host=0.0.0.0 --port=8000

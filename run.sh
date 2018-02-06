@@ -41,40 +41,9 @@ function stop_container {
 function compose {
     DOCKER_COMPOSE_COMMAND="docker-compose --project-name ${COMPOSE_PROJECT_NAME} --project-directory ${CURRENT_DIR}"
 
-    # append service confugs
-    if [[ ! -z $NGINX_IMAGE ]];
-    then
-        DOCKER_COMPOSE_COMMAND="${DOCKER_COMPOSE_COMMAND} -f ${CURRENT_DIR}/compose/nginx/compose.yaml"
-    fi
-
-    if [[ ! -z $MYSQL_IMAGE ]];
-    then
-        DOCKER_COMPOSE_COMMAND="${DOCKER_COMPOSE_COMMAND} -f ${CURRENT_DIR}/compose/php/compose.yaml"
-    fi
-
     if [[ ! -z $PHP_IMAGE ]];
     then
-        DOCKER_COMPOSE_COMMAND="${DOCKER_COMPOSE_COMMAND} -f ${CURRENT_DIR}/compose/mysql/compose.yaml"
-    fi
-
-    if [[ ! -z $ELASTICSEARCH_IMAGE ]];
-    then
-        DOCKER_COMPOSE_COMMAND="${DOCKER_COMPOSE_COMMAND} -f ${CURRENT_DIR}/compose/elasticsearch/compose.yaml"
-    fi
-
-    if [[ ! -z $REDIS_IMAGE ]];
-    then
-        DOCKER_COMPOSE_COMMAND="${DOCKER_COMPOSE_COMMAND} -f ${CURRENT_DIR}/compose/redis/compose.yaml"
-    fi
-
-    if [[ ! -z $MEMCACHED_IMAGE ]];
-    then
-        DOCKER_COMPOSE_COMMAND="${DOCKER_COMPOSE_COMMAND} -f ${CURRENT_DIR}/compose/memcached/compose.yaml"
-    fi
-
-    if [[ ! -z $RABBITMQ_IMAGE ]];
-    then
-        DOCKER_COMPOSE_COMMAND="${DOCKER_COMPOSE_COMMAND} -f ${CURRENT_DIR}/compose/rabbitmq/compose.yaml"
+        DOCKER_COMPOSE_COMMAND="${DOCKER_COMPOSE_COMMAND} -f ${CURRENT_DIR}/compose/php/compose.yaml"
     fi
     
     if [[ ! -z $MONGODB_IMAGE ]];
